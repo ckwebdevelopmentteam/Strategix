@@ -12,14 +12,15 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with our expert on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-1 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_30px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300 animate-pulse-border pr-6 pl-1 h-14"
+      suppressHydrationWarning
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center sm:justify-start bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_30px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300 animate-pulse-border w-14 h-14 sm:w-auto sm:h-14 sm:pr-6 sm:pl-1"
     >
       {/* Icon part */}
-      <div className="w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0">
-        <FaWhatsapp size={26} />
+      <div className="w-14 h-14 sm:w-12 sm:h-12 flex items-center justify-center rounded-full flex-shrink-0">
+        <FaWhatsapp className="text-3xl sm:text-[26px]" />
       </div>
-      {/* Label — always shown */}
-      <span className="text-sm font-semibold whitespace-nowrap">
+      {/* Label — hidden on small screen, always shown on sm and up */}
+      <span className="hidden sm:inline text-sm font-semibold whitespace-nowrap">
         Chat with Our Expert
       </span>
     </a>

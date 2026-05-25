@@ -31,16 +31,16 @@ const quickLinks = [
 export default function Footer() {
   return (
     <footer className="bg-black border-t border-white/5 pt-16 pb-6 relative overflow-hidden bg-grid-lines">
-      
+
       {/* Top CTA Row */}
       <div className="max-w-[1300px] mx-auto px-6 md:px-8 mb-10">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-10 border-b border-white/10">
           <div className="flex-1 max-w-3xl">
-            <h2 
+            <h2
               className="text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-tight leading-tight mb-3"
-              style={{ 
-                color: 'transparent', 
-                WebkitTextStroke: '1px rgba(255, 255, 255, 0.85)' 
+              style={{
+                color: 'transparent',
+                WebkitTextStroke: '1px rgba(255, 255, 255, 0.85)'
               }}
             >
               Explore Our Main Corporate Website
@@ -50,7 +50,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex-shrink-0">
-            <a 
+            <a
               href="https://strategixuae.com/"
               target="_blank"
               rel="noopener noreferrer"
@@ -65,7 +65,7 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="max-w-[1300px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 items-start">
-          
+
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-5">
@@ -162,8 +162,8 @@ export default function Footer() {
               Quick Contact
             </h4>
             <div className="flex flex-col gap-4">
-              <a 
-                href="mailto:info@strategixuae.com" 
+              <a
+                href="mailto:info@strategixuae.com"
                 className="flex items-center gap-3 text-[#B5B5B5] hover:text-gold transition-colors text-sm group"
               >
                 <div className="w-5 h-5 flex items-center justify-center text-white/50 group-hover:text-gold transition-colors">
@@ -171,8 +171,8 @@ export default function Footer() {
                 </div>
                 <span className="break-all">info@strategixuae.com</span>
               </a>
-              <a 
-                href="tel:+971585214600" 
+              <a
+                href="tel:+971585214600"
                 className="flex items-center gap-3 text-[#B5B5B5] hover:text-gold transition-colors text-sm group"
               >
                 <div className="w-5 h-5 flex items-center justify-center text-white/50 group-hover:text-gold transition-colors">
@@ -199,17 +199,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Floating Bottom Left 'Talk to an Expert' Phone Button */}
-      <a
-        href="tel:+971585214600"
-        className="fixed bottom-6 left-6 z-50 flex items-center bg-[#1c1c1c]/90 backdrop-blur-md border border-white/10 pl-2 pr-4 py-1.5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-gold/30 hover:-translate-y-1 transition-all duration-300"
-      >
-        <div className="w-9 h-9 rounded-full bg-[#00C853] flex items-center justify-center text-white flex-shrink-0 mr-2.5 shadow-[0_2px_10px_rgba(0,200,83,0.3)]">
-          <FaPhone size={13} className="animate-pulse" />
-        </div>
-        <span className="text-white text-xs font-bold whitespace-nowrap">Talk to an Expert</span>
-      </a>
 
     </footer>
   );
