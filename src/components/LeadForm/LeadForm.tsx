@@ -16,7 +16,7 @@ export default function AboutSection() {
             <div>
               {/* BADGE */}
               <div className="flex items-center gap-3 mb-6">
-                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#F5F5F3] animate-pulse" />
 
                 <p className="text-[#1F1F1F] text-sm font-semibold uppercase tracking-wider">
                   About Us
@@ -25,7 +25,7 @@ export default function AboutSection() {
 
               {/* HEADING */}
               <h2 className="text-[#1F1F1F] text-2xl md:text-3xl lg:text-[42px] xl:text-[46px] font-semibold tracking-tight leading-[1.5] mb-12">
-                We deliver <span className="text-gold-dark font-semibold">innovative healthcare solutions</span> to help
+                We deliver <span className="text-[text-[#F5F5F3]] font-semibold">innovative healthcare solutions</span> to help
                 grow your healthcare business across UAE.
               </h2>
             </div>
@@ -33,11 +33,11 @@ export default function AboutSection() {
             {/* BIG STAT */}
             <div className="flex items-start gap-6">
               <div className="flex items-start">
-                <h3 className="text-gold text-6xl sm:text-7xl md:text-8xl font-bold leading-none">
+                <h3 className="text-[#1F1F1F] text-6xl sm:text-7xl md:text-8xl font-bold leading-none">
                   15
                 </h3>
 
-                <span className="text-gold text-2xl sm:text-3xl font-semibold mt-2 ml-1">
+                <span className="text-[#1F1F1F] text-2xl sm:text-3xl font-semibold mt-2 ml-1">
                   M+
                 </span>
               </div>
@@ -70,12 +70,12 @@ export default function AboutSection() {
             {/* BUTTON */}
             <button
               onClick={() => window.dispatchEvent(new CustomEvent('open-lead-modal'))}
-              className="bg-gold hover:bg-gold-dark transition-all duration-300 text-black rounded-full px-8 py-4 flex items-center gap-4 text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-gold/10 group cursor-pointer"
+              className="bg-[#1F1F1F] hover:bg-[#F5F5F3] border border-[#F1F1F1] transition-all duration-300 text-[#F5F5F3] hover:text-[#1F1F1F] rounded-full px-8 py-4 flex items-center gap-4 text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-black/10 group cursor-pointer"
             >
-              Get Free Consultation
+              Get  Consultation
 
-              <span className="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center group-hover:bg-black/20 transition-all duration-300">
-                <FaArrowRight size={11} className="text-black" />
+              <span className="w-8 h-8 rounded-full bg-[#F5F5F3] hover:bg-[#1F1F1F] flex items-center justify-center group-hover:bg-black/20 transition-all duration-300">
+                <FaArrowRight size={11} className="text-[#1F1F1F]" />
               </span>
             </button>
           </div>

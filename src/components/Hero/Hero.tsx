@@ -147,35 +147,28 @@ export default function Hero() {
                   }}
                   className="w-full sm:w-auto justify-center bg-gold text-black hover:bg-gold-dark hover:-translate-y-0.5 transition-all duration-300 rounded-full px-7 py-3.5 flex items-center gap-3 text-sm font-semibold group border-0 shadow-lg shadow-gold/10 cursor-pointer"
                 >
-                  Get Free Consultation
+                  Get Consultation
                   <span className="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black/20">
                     <FaArrowRight size={11} className="text-black" />
                   </span>
                 </button>
 
-                <a
-                  href="https://wa.me/971585214600?text=Hello%20Strategix%2C%20I%20am%20interested%20in%20healthcare%20facility%20setup%20in%20UAE.%20Please%20share%20more%20details."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto justify-center border border-white/20 text-white hover:border-gold hover:text-gold hover:-translate-y-0.5 transition-all duration-300 rounded-full px-7 py-3.5 flex items-center gap-2 text-sm font-semibold text-center"
-                >
-                  Talk to Our Expert on WhatsApp
-                </a>
+
               </div>
 
               {/* TRUST BAR */}
               <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-white/80 text-xs md:text-sm">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span><strong className="text-white font-semibold">100+</strong> Happy Clients</span>
+                  <span><strong className="text-white font-bold">100+</strong> Happy Clients</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span><strong className="text-white font-semibold">DHA | DOH | MOH</strong> Approved</span>
+                  <span><strong className="text-white font-bold">DHA | DOH | MOH</strong> Approved</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span><strong className="text-white font-semibold">On-Time</strong> Delivery</span>
+                  <span><strong className="text-white font-bold">On-Time</strong> Delivery</span>
                 </div>
               </div>
             </div>
@@ -189,7 +182,7 @@ export default function Hero() {
                 {/* HEADING */}
                 <div className="relative z-10 mb-5">
                   <h3 className="text-white text-xl md:text-2xl font-semibold leading-tight mb-2">
-                    Get Your Free Business Analysis Report
+                    Get Your Business Analysis Report
                   </h3>
 
                   <p className="text-white/65 text-xs md:text-sm leading-relaxed">
@@ -282,7 +275,7 @@ export default function Hero() {
                     type="submit"
                     className="w-full h-12 rounded-xl bg-gold hover:bg-[#d6b45f] text-black text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                   >
-                    Get My Free Business Analysis Report
+                    Get My Business Analysis Report
                     <FaArrowRight size={12} />
                   </button>
 

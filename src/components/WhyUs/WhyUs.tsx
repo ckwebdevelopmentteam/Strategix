@@ -31,9 +31,9 @@ export default function WhyUs() {
     <section id="why-us" className="py-24 bg-[#FAF7F2] relative overflow-hidden bg-grid-lines-light">
       {/* Delicate organic silk ambient glow */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#EFECE1]/40 blur-[100px] rounded-full pointer-events-none" />
-      
+
       <div className="relative max-w-[1300px] mx-auto px-6 md:px-8">
-        
+
         {/* HEADER SECTION */}
         <div ref={headRef} className="text-left mb-16 max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-white border border-[#E6DFD3] rounded-full px-4 py-1.5 mb-5 shadow-sm">
@@ -43,7 +43,7 @@ export default function WhyUs() {
             </p>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-[44px] font-bold text-[#1C1A17] tracking-tight leading-tight">
-            Why <span className="text-[#A8905B]">Strategix</span> is The Right Choice for You
+            Why Strategix is The Right Choice for You
           </h2>
         </div>
 
@@ -51,7 +51,7 @@ export default function WhyUs() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
           {/* Left Columns (Col 1 & 2) Container */}
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            
+
             {/* Card 1: Regulatory Compliance */}
             <Card
               icon={FiAward}
@@ -129,9 +129,8 @@ function Card({ icon: Icon, title, desc, index, isWide = false }: CardProps) {
   return (
     <div
       ref={ref}
-      className={`group bg-white border border-[#E6DFD3]/60 p-8 md:p-10 rounded-[32px] transition-all duration-300 hover:border-[#A8905B]/40 hover:shadow-[0_15px_40px_rgba(150,128,81,0.08)] hover:-translate-y-1 flex flex-col justify-between min-h-[250px] ${
-        isWide ? 'md:col-span-2' : ''
-      }`}
+      className={`group bg-white border border-[#E6DFD3]/60 p-8 md:p-10 rounded-[32px] transition-all duration-300 hover:border-[#A8905B]/40 hover:shadow-[0_15px_40px_rgba(150,128,81,0.08)] hover:-translate-y-1 flex flex-col justify-between min-h-[250px] ${isWide ? 'md:col-span-2' : ''
+        }`}
     >
       <div>
         {/* Icon Circle */}
