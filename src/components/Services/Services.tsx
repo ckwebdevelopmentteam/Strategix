@@ -2,109 +2,76 @@
 
 const services = [
   {
+    title: 'Business Analysis Report for Healthcare Investors',
+    description:
+      'A clear and professional financial roadmap for healthcare investors planning to launch or expand in the UAE market. Get investment estimates, revenue projections, and market feasibility.',
+    image: '/medical-center.png',
+  },
+  {
     title: 'Healthcare Turnkey Project Management',
     description:
-      'Complete project execution from planning to launch, ensuring your facility is ready for operations with minimal delays.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/business-people-teamwork-scaled.webp',
+      'Complete project execution from planning to successful launch.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/business-people-teamwork-scaled.webp',
   },
   {
-    title: 'Healthcare Operations Management & Governance',
+    title: 'Architecture, 3D Designing & Interior Fit-out',
     description:
-      'Improving operational efficiency through structured governance models and workflow optimisation.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM-2.jpg',
-  },
-  {
-    title: 'Business Planning, Analysis & Feasibility Study',
-    description:
-      'Comprehensive planning with market research, financial forecasting, and feasibility analysis to validate healthcare investments.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_lc14qelc14qelc14-1.png',
-  },
-  {
-    title: 'Architecture, 3D Designing, & Interior Fit out',
-    description:
-      'Modern, patient-centric designs with efficient layouts and premium interior solutions for healthcare environments.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_g74j79g74j79g74j-1.png',
+      'Modern, compliant, and patient-centric healthcare facility designs.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_g74j79g74j79g74j-1.png',
   },
   {
     title: 'Healthcare Facility Licensing',
     description:
-      'Seamless assistance in obtaining approvals across Dubai, Abu Dhabi, and the Northern Emirates for full regulatory compliance.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_1kudoo1kudoo1kud-1.png',
+      'Full support for DHA, DOH, and MOH approvals across the UAE.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_1kudoo1kudoo1kud-1.png',
   },
   {
-    title: 'Healthcare Professional Licensing',
+    title: 'Healthcare Professionals Licensing',
     description:
-      'Fast and efficient licensing support for doctors, nurses, and allied healthcare professionals.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_edpv0bedpv0bedpv-1.png',
+      'Efficient licensing for doctors, nurses, and allied health staff.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_edpv0bedpv0bedpv-1.png',
   },
   {
-    title: 'Manpower Planning, Recruitment & PR Service',
+    title: 'Manpower Planning, Recruitment & PR Services',
     description:
-      'Strategic workforce planning and recruitment solutions to build strong healthcare teams.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_qgxxqpqgxxqpqgxx-1.png',
+      'Strategic staffing and government relations support.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_qgxxqpqgxxqpqgxx-1.png',
   },
   {
     title: 'Medical Equipment Planning & Procurement',
     description:
-      'End-to-end sourcing and procurement of advanced medical equipment tailored to your facility needs.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM.jpg',
+      'Sourcing and supply of quality medical equipment.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM.jpg',
   },
   {
     title: 'IT Infrastructure Setting Up (Hardware & Software)',
     description:
-      'Complete hardware IT setup, including software systems, hardware solutions, and digital infrastructure integration.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_nno7nbnno7nbnno7-1.png',
+      'Complete digital infrastructure for healthcare operations.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_nno7nbnno7nbnno7-1.png',
   },
   {
-    title: 'Website / Mob App Development, Branding & Marketing',
+    title: 'Website / Mobile App Development, Branding & Marketing',
     description:
-      'Custom healthcare websites, mobile applications, branding strategies, and marketing solutions to grow your presence.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_g74j79g74j79g74j-1.png',
+      'Healthcare-focused digital presence and patient acquisition strategies.',
+    image: '/healthcare-mobile-app.png',
   },
   {
-    title: 'Quality Audit Assistance And Accreditations',
+    title: 'Quality Audit Assistance and Accreditations',
     description:
-      'Support for DHA, DOH, MOHAP, JCI, and other healthcare accreditation standards with quality compliance guidance.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_lc14qelc14qelc14-1.png',
-  },
-  {
-    title: 'Insurance Empanelment',
-    description:
-      'Assistance with insurance provider onboarding and empanelment processes for healthcare facilities.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/business-people-teamwork-scaled.webp',
-  },
-  {
-    title: 'Service Line Identification, Market Analysis, And Pricing',
-    description:
-      'Identify profitable healthcare service lines with detailed market insights and competitive pricing strategies.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_edpv0bedpv0bedpv-1.png',
+      'Support for JCI, DHA, and other quality standards.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_lc14qelc14qelc14-1.png',
   },
   {
     title: 'Financial Services: VAT & Corporate Tax',
     description:
-      'Professional financial guidance on VAT registration, compliance, and corporate tax management.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM.jpg',
+      'Expert financial and tax compliance services.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM.jpg',
   },
   {
     title: 'Healthcare Business Mergers & Acquisitions',
     description:
-      'Expert support in mergers, acquisitions, and partnerships for strategic healthcare expansion and investment growth.',
-    image:
-      'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM-2.jpg',
+      'Support for strategic growth and investment opportunities.',
+    image: 'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM-2.jpg',
   },
 ];
 
