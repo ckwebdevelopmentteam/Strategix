@@ -46,7 +46,7 @@ export default function FinalCTA() {
 
               {/* Exact website copy, no modifications */}
               <p className="text-black/85 text-sm md:text-base font-medium leading-relaxed max-w-lg">
-                Let our expert team help you from concept to successful operations in the UAE. Get your free consultation and business analysis report today.
+                Let our expert team help you from concept to successful operations in the UAE. Get your consultation and business analysis report today.
               </p>
             </div>
 
