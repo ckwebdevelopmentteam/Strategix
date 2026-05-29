@@ -15,6 +15,21 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 100%;
+  }
+
+  /* 💻 Compact zoom for tablets and smaller laptops (e.g., standard MacBooks, smaller screens) */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    html {
+      font-size: 87.5%; /* Scales the entire website proportionally (1rem = 14px) */
+    }
+  }
+
+  /* 🖥️ Calibrated scale for mid-range desktop monitors */
+  @media (min-width: 1441px) and (max-width: 1680px) {
+    html {
+      font-size: 93.75%; /* Scales the entire website proportionally (1rem = 15px) */
+    }
   }
 
   body {

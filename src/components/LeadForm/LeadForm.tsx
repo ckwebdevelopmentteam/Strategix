@@ -12,42 +12,27 @@ export default function AboutSection() {
         {/* TOP CONTENT */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-7 flex flex-col justify-between h-full">
-            <div>
-              {/* BADGE */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#F5F5F3] animate-pulse" />
+          <div className="lg:col-span-7">
+            {/* BADGE */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#1F1F1F] animate-pulse" />
 
-                <p className="text-[#1F1F1F] text-sm font-semibold uppercase tracking-wider">
-                  About Us
-                </p>
-              </div>
-
-              {/* HEADING */}
-              <h2 className="text-[#1F1F1F] text-2xl md:text-3xl lg:text-[42px] xl:text-[46px] font-semibold tracking-tight leading-[1.5] mb-12">
-                We deliver <span className="text-[text-[#F5F5F3]] font-semibold">innovative healthcare solutions</span> to help
-                grow your healthcare business across UAE.
-              </h2>
+              <p className="text-[#1F1F1F] text-sm font-semibold uppercase tracking-wider">
+                About Us
+              </p>
             </div>
 
-            {/* BIG STAT */}
-            <div className="flex items-start gap-6">
-              <div className="flex items-start">
-                <h3 className="text-[#1F1F1F] text-6xl sm:text-7xl md:text-8xl font-bold leading-none">
-                  15
-                </h3>
+            {/* HEADING */}
+            <h2 className="text-[#1F1F1F] text-2xl md:text-3xl lg:text-[42px] xl:text-[46px] font-semibold tracking-tight leading-[1.3] mb-8">
+              We deliver <span className="font-bold">innovative healthcare solutions</span> to help
+              grow your healthcare business across UAE.
+            </h2>
 
-                <span className="text-[#1F1F1F] text-2xl sm:text-3xl font-semibold mt-2 ml-1">
-                  M+
-                </span>
-              </div>
-
-              <div className="max-w-[280px]">
-                <p className="text-[#666666] text-sm leading-relaxed pt-2">
-                  We’ve helped healthcare companies secure
-                  successful growth and operational excellence.
-                </p>
-              </div>
+            {/* DESCRIPTION */}
+            <div className="max-w-2xl">
+              <p className="text-[#333333] text-lg md:text-xl lg:text-2xl font-medium leading-relaxed">
+                We’ve helped healthcare companies secure successful growth and operational excellence.
+              </p>
             </div>
           </div>
 
