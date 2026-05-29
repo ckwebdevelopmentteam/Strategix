@@ -215,7 +215,7 @@ function TallCard({ icon: Icon, title, desc1, desc2, index }: TallCardProps) {
           }}
           className="inline-flex items-center gap-2 bg-gradient-to-br from-[#efe9d1] via-[#DBCA93] to-[#c9b87e] text-black font-semibold text-sm rounded-full px-7 py-3.5 hover:scale-[1.03] transition-all duration-300 shadow-[0_10px_25px_rgba(219,202,147,0.15)] group/btn cursor-pointer"
         >
-          <span>Book Free Consultation</span>
+          <span>Book Consultation</span>
           <FiArrowRight size={16} className="transform group-hover/btn:translate-x-1 transition-transform duration-300" />
         </button>
       </div>

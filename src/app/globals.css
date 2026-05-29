@@ -15,21 +15,6 @@
 
   html {
     scroll-behavior: smooth;
-    font-size: 100%;
-  }
-
-  /* Compact zoom for tablets and smaller laptops */
-  @media (min-width: 1024px) {
-    html {
-      font-size: 93.75%; /* 15px */
-    }
-  }
-
-  /* Compact zoom for standard desktop/laptop screens */
-  @media (min-width: 1280px) {
-    html {
-      font-size: 87.5%; /* 14px */
-    }
   }
 
   body {

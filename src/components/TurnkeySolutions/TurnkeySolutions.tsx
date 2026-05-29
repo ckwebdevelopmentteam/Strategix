@@ -22,56 +22,50 @@ const turnkeySolutions: TurnkeyItem[] = [
     title: 'Hospitals',
     description:
       'End-to-end structural planning, medical equipment procurement, and authority clearances for large-scale acute care tertiary hospitals.',
-    approvals: 'MOH | DHA / DOH | Civil Defense',
-    image: '/hero-3.jpg',
+    approvals: 'DHA / DOH | MOH | Civil Defense',
+    image: '/hospital-exterior.png',
   },
   {
     title: 'Home Care',
     description:
       'Establishing compliant home nursing care and field rehabilitation agencies, aligning staff schedules with health guidelines.',
     approvals: 'DHA / DOH | Operational Permits',
-    image: '/hero-5.jpg',
+    image: '/home-care.png',
   },
+
   {
     title: 'Virtual Clinic',
     description:
-      'Designing and licensing high-end virtual doctor consultation rooms and soundproof clinical tele-consult cabins.',
-    approvals: 'Telehealth Permits | DHA / DOH',
-    image: '/medical-lab.png',
-  },
-  {
-    title: 'TeleHealth',
-    description:
-      'Secure, HIPAA-compliant patient communication channels, electronic health record integration, and video portal setup.',
-    approvals: 'Telehealth Permits | DHA / DOH',
-    image: '/medical-lab.png',
+      'Turnkey setup for digital-first medical practices, covering DHA/DOH licensing, secure video consultation portals, e-prescriptions, and remote monitoring integrations.',
+    approvals: 'DHA / DOH | Telehealth Permits',
+    image: '/telehealth.png',
   },
   {
     title: 'Department Expansions',
     description:
       'Adding specialized new departments, clinical wards, operating rooms, or diagnostic suites to existing operational facilities.',
-    approvals: 'MOH | DHA / DOH | Fit-out Permits',
+    approvals: 'DHA / DOH | MOH | Fit-out Permits',
     image: '/surgery-suite.png',
   },
   {
     title: 'Radiology centre',
     description:
       'Advanced specialized layouts for lead-lined imaging chambers (X-Ray, MRI, CT Scans) with FANR nuclear radiation clearances.',
-    approvals: 'FANR Licensing | DHA / DOH',
-    image: '/hero-1.jpg',
+    approvals: 'DHA / DOH | FANR Licensing',
+    image: '/radiology-center.png',
   },
   {
     title: 'Mobile Unit',
     description:
       'Custom heavy-vehicle modifications into clinical diagnostic centers, patient exam rooms, and mobile healthcare vans.',
-    approvals: 'RTA Approvals | DHA / DOH | MOH',
-    image: '/hero-6.jpg',
+    approvals: 'DHA / DOH | RTA Approvals | MOH',
+    image: '/mobile-unit.png',
   },
   {
     title: 'Laboratory',
     description:
       'Highly sterile testing laboratories, pathology research labs, and blood processing hubs compliant with EIAC ISO standards.',
-    approvals: 'EIAC Accreditation | DHA / DOH',
+    approvals: 'DHA / DOH | EIAC Accreditation',
     image: '/medical-lab.png',
   },
   {
@@ -86,14 +80,14 @@ const turnkeySolutions: TurnkeyItem[] = [
     description:
       'Comprehensive multi-disciplinary polyclinics providing outpatient services, general medicine, and specialized clinical chambers.',
     approvals: 'DHA / DOH | Ministry of Health',
-    image: '/clinic-lobby.png',
+    image: '/medical-center.png',
   },
   {
     title: 'Healthcare Mobile Apps',
     description:
       'Custom app development for online consultations, billing, appointments, and secure health data management.',
     approvals: 'UAE Cyber Laws | Telehealth Permits',
-    image: '/medical-lab.png',
+    image: '/healthcare-mobile-app.png',
   },
 ];
 
@@ -127,7 +121,7 @@ export default function TurnkeySolutions() {
       <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-gold/5 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-[1600px] mx-auto px-6 md:px-10">
-        
+
         {/* Section Header */}
         <div ref={headRef} className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-gold/5 border border-gold/20 rounded-full px-4 py-2 mb-6">
@@ -144,7 +138,7 @@ export default function TurnkeySolutions() {
           </h2>
 
           <p className="text-white/60 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            We deliver complete, end-to-end medical facility implementations. Explore our 12 turnkey 
+            We deliver complete, end-to-end medical facility implementations. Explore our 12 turnkey
             setups engineered for compliance with DHA, DOH, and MOH specifications.
           </p>
         </div>

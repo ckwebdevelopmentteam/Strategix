@@ -12,12 +12,12 @@ export default function FinalCTA() {
 
       <div className="relative z-10 max-w-[1300px] mx-auto px-6 md:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          
+
           {/* LEFT PANEL: Portrait High-Resolution Image Card */}
           <div className="w-full relative rounded-[32px] overflow-hidden min-h-[400px] lg:min-h-[500px] shadow-2xl border border-black/5 group">
-            <img 
-              src="/hero-5.jpg" 
-              alt="Strategix UAE Boardroom" 
+            <img
+              src="/hero-5.jpg"
+              alt="Strategix UAE Boardroom"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Subtle premium dark vignette to embed the image cleanly */}
@@ -26,7 +26,7 @@ export default function FinalCTA() {
 
           {/* RIGHT PANEL: Brand-Gold Executive Text Card */}
           <div className="bg-[#DBCA93] text-[#111111] rounded-[32px] p-8 md:p-12 lg:p-16 flex flex-col justify-between shadow-2xl relative overflow-hidden group/card">
-            
+
             {/* Decorative organic top-right light flare */}
             <div className="absolute top-[-150px] right-[-150px] w-96 h-96 rounded-full bg-white/20 blur-3xl pointer-events-none" />
 
@@ -37,7 +37,7 @@ export default function FinalCTA() {
                   Ready to launch? <br />
                   We're ready to go.
                 </h2>
-                
+
                 {/* Asymmetric diagonal arrow badge matching screenshot layout */}
                 <div className="w-14 h-14 rounded-2xl bg-black/10 border border-black/15 flex items-center justify-center text-black flex-shrink-0 transition-transform duration-500 group-hover/card:rotate-45">
                   <FiArrowUpRight size={28} />
@@ -52,19 +52,19 @@ export default function FinalCTA() {
 
             {/* Minimalist buttons matching screenshot: solid dark capsule with a separate arrow button */}
             <div className="flex flex-wrap gap-4 items-center mt-12 lg:mt-auto">
-              
+
               {/* Primary: Solid black capsule with arrow */}
               <div className="flex items-center gap-2 flex-wrap">
-                <button 
+                <button
                   onClick={(e) => {
                     e.preventDefault();
                     window.dispatchEvent(new CustomEvent('open-lead-modal'));
                   }}
                   className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#111111] text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:bg-black hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-black/10 cursor-pointer"
                 >
-                  Get Free Consultation
+                  Get Consultation
                 </button>
-                <button 
+                <button
                   onClick={(e) => {
                     e.preventDefault();
                     window.dispatchEvent(new CustomEvent('open-lead-modal'));
@@ -76,18 +76,18 @@ export default function FinalCTA() {
               </div>
 
               {/* Secondary Option: Plain outline button, no extra colors */}
-              <button 
+              <button
                 onClick={(e) => {
                   e.preventDefault();
                   window.dispatchEvent(new CustomEvent('open-lead-modal'));
                 }}
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-transparent text-black border border-black/20 font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:bg-black/10 hover:border-black hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
-                Get Free Business Report
+                Get Consultation Report
               </button>
 
               {/* Tertiary Option: WhatsApp contact button, plain outline (no color) */}
-              <a 
+              <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"

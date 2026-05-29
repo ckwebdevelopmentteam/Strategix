@@ -157,18 +157,18 @@ export default function Hero() {
               </div>
 
               {/* TRUST BAR */}
-              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-white/80 text-xs md:text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span><strong className="text-white font-bold">100+</strong> Happy Clients</span>
+              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-4 gap-x-8 text-white/90 text-sm md:text-base lg:text-lg font-medium">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
+                  <span><strong className="text-white font-extrabold">100+</strong> Happy Clients</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span><strong className="text-white font-bold">DHA | DOH | MOH</strong> Approved</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
+                  <span><strong className="text-white font-extrabold">DHA | DOH | MOH</strong> Approved</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  <span><strong className="text-white font-bold">On-Time</strong> Delivery</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
+                  <span><strong className="text-white font-extrabold">On-Time</strong> Delivery</span>
                 </div>
               </div>
             </div>
