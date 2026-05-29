@@ -247,7 +247,7 @@ export default function LeadModal() {
                   disabled={loading}
                   className="w-full h-12 rounded-xl bg-gold hover:bg-[#d6b45f] text-black text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
                 >
-                  {loading ? 'Sending...' : 'Get My Free Business Analysis Report'}
+                  {loading ? 'Sending...' : 'Get My Business Analysis Report'}
                   {!loading && <FaArrowRight size={12} />}
                 </button>
               </form>
