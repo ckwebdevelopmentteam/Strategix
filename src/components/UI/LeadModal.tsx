@@ -130,7 +130,7 @@ export default function LeadModal() {
               {/* HEADING */}
               <div className="relative z-10 mb-5 text-left">
                 <h3 className="text-white text-xl md:text-2xl font-semibold leading-tight mb-2">
-                  Get Your Free Business Analysis Report
+                  Get Your Business Analysis Report
                 </h3>
 
                 <p className="text-white/65 text-xs md:text-sm leading-relaxed">
