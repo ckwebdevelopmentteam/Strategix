@@ -45,7 +45,7 @@ const turnkeySolutions: TurnkeyItem[] = [
     description:
       'Adding specialized new departments, clinical wards, operating rooms, or diagnostic suites to existing operational facilities.',
     approvals: 'DHA / DOH | MOH | Fit-out Permits',
-    image: '/department-expansions.png',
+    image: '/Department Expansions.jpeg',
   },
   {
     title: 'Radiology centre',
