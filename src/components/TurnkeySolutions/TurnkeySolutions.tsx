@@ -38,7 +38,7 @@ const turnkeySolutions: TurnkeyItem[] = [
     description:
       'Turnkey setup for digital-first medical practices, covering DHA/DOH licensing, secure video consultation portals, e-prescriptions, and remote monitoring integrations.',
     approvals: 'DHA / DOH | Telehealth Permits',
-    image: '/telehealth.png',
+    image: '/Virtual Clinic.jpeg',
   },
   {
     title: 'Department Expansions',
