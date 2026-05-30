@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'Strategix UAE is a leading healthcare consultancy in Dubai providing turnkey healthcare project management, DHA/DOH/MOH licensing, clinic & hospital setup, and business analysis reports for healthcare investors across the UAE.',
   keywords:
     'Healthcare Consultants Dubai, Healthcare Business Setup UAE, Healthcare Licensing UAE, Clinic Setup Dubai, Hospital Consultancy UAE, DHA Licensing Consultants',
+  icons: {
+    icon: '/fav.png',
+  },
   openGraph: {
     title: 'Healthcare Consultants Dubai | Strategix UAE',
     description:
