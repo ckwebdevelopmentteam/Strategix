@@ -5,7 +5,7 @@ const services = [
     title: 'Business Analysis Report for Healthcare Investors',
     description:
       'A clear and professional financial roadmap for healthcare investors planning to launch or expand in the UAE market. Get investment estimates, revenue projections, and market feasibility.',
-    image: '/medical-center.png',
+    image: '/business-analysis-report.jpeg',
   },
   {
     title: 'Healthcare Turnkey Project Management',
@@ -29,7 +29,7 @@ const services = [
     title: 'Healthcare Professionals Licensing',
     description:
       'Efficient licensing for doctors, nurses, and allied health staff.',
-    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_edpv0bedpv0bedpv-1.png',
+    image: '/healthcare-facility-licensing.jpeg',
   },
   {
     title: 'Manpower Planning, Recruitment & PR Services',
@@ -41,13 +41,13 @@ const services = [
     title: 'Medical Equipment Planning & Procurement',
     description:
       'Sourcing and supply of quality medical equipment.',
-    image: 'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM.jpg',
+    image: '/medical-equipment-planning.jpeg',
   },
   {
     title: 'IT Infrastructure Setting Up (Hardware & Software)',
     description:
       'Complete digital infrastructure for healthcare operations.',
-    image: 'https://strategixuae.com/wp-content/uploads/2026/04/Gemini_Generated_Image_nno7nbnno7nbnno7-1.png',
+    image: '/it-infrastructure.jpeg',
   },
   {
     title: 'Website / Mobile App Development, Branding & Marketing',
@@ -65,7 +65,7 @@ const services = [
     title: 'Financial Services: VAT & Corporate Tax',
     description:
       'Expert financial and tax compliance services.',
-    image: 'https://strategixuae.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-27-at-4.06.50-PM.jpg',
+    image: '/financial-services.jpeg',
   },
   {
     title: 'Healthcare Business Mergers & Acquisitions',
