@@ -63,20 +63,17 @@ export default function LeadModal() {
   const onSubmit = async (data: LeadFormData) => {
     setLoading(true);
     try {
-      await fetch('/api/lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fullName: data.name,
-          phone: data.phone,
-          email: data.email,
-          facility: data.facilityType,
-          emirate: data.emirate,
-          budget: data.budget,
-        }),
-      });
+      const message = `*New Lead Submission*
+*Name:* ${data.name}
+*Phone:* ${data.phone}
+*Email:* ${data.email}
+*Facility Type:* ${data.facilityType}
+*Emirate:* ${data.emirate}
+*Budget:* ${data.budget || 'N/A'}`;
+
+      // Live number from website: 971585214600
+      const whatsappUrl = `https://wa.me/971585214600?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
 
       setSubmitted(true);
       setTimeout(() => {

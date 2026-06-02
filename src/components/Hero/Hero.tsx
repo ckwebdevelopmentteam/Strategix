@@ -54,24 +54,23 @@ export default function Hero() {
       email: formData.get('email'),
       facility: formData.get('facility'),
       emirate: formData.get('emirate'),
-      budget: formData.get('budget'),
+      budget: formData.get('budget') || 'N/A',
     };
 
-    try {
-      await fetch('/api/lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+    const message = `*New Lead Submission*
+*Name:* ${data.fullName}
+*Phone:* ${data.phone}
+*Email:* ${data.email}
+*Facility Type:* ${data.facility}
+*Emirate:* ${data.emirate}
+*Budget:* ${data.budget}`;
 
-      setSubmitted(true);
+    // Live number from website: 971585214600
+    const whatsappUrl = `https://wa.me/971585214600?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 
-      e.target.reset();
-    } catch (error) {
-      console.log(error);
-    }
+    setSubmitted(true);
+    e.target.reset();
   };
 
   return (
