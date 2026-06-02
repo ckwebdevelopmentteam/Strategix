@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
+import { pushToDataLayer, trackConversion } from '@/lib/analytics';
 
 const slides = [
   {
@@ -23,6 +25,7 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [fading, setFading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,9 +72,18 @@ export default function Hero() {
     const whatsappUrl = `https://wa.me/971585214600?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 
+    // Tracking
+    pushToDataLayer({
+      event: 'form_submit',
+      form_name: 'Hero Form',
+      page_path: pathname,
+    });
+    trackConversion();
+
     setSubmitted(true);
     e.target.reset();
   };
+
 
   return (
     <section

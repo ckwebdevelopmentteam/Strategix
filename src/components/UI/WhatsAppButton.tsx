@@ -1,16 +1,28 @@
 'use client';
 
 import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
+import { pushToDataLayer, trackConversion } from '@/lib/analytics';
 
 const WHATSAPP_URL =
   'https://wa.me/971585214600?text=Hello%20Strategix%2C%20I%20am%20interested%20in%20healthcare%20facility%20setup%20in%20UAE.%20Please%20share%20more%20details.';
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
       {/* Call Button */}
       <a
         href="tel:+971585214600"
+        onClick={() => {
+          pushToDataLayer({
+            event: 'phone_click',
+            phone_number: '+971585214600',
+            page_path: pathname,
+          });
+          trackConversion();
+        }}
         className="flex items-center justify-center w-14 h-14 bg-gold text-dark-deep rounded-full shadow-[0_4px_20px_rgba(219,202,147,0.4)] hover:shadow-gold-hover hover:-translate-y-1 transition-all duration-300"
         aria-label="Call Us"
       >
@@ -20,6 +32,14 @@ export default function WhatsAppButton() {
       {/* WhatsApp Button */}
       <a
         href={WHATSAPP_URL}
+        onClick={() => {
+          pushToDataLayer({
+            event: 'whatsapp_click',
+            button_text: 'Chat with Our Expert',
+            page_path: pathname,
+          });
+          trackConversion();
+        }}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with our expert on WhatsApp"

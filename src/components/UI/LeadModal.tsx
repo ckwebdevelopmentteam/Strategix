@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaTimes, FaArrowRight, FaFileAlt } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
+import { pushToDataLayer, trackConversion } from '@/lib/analytics';
 
 type LeadFormData = {
   name: string;
@@ -37,6 +39,7 @@ export default function LeadModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const pathname = usePathname();
 
   const {
     register,
@@ -74,6 +77,14 @@ export default function LeadModal() {
       // Live number from website: 971585214600
       const whatsappUrl = `https://wa.me/971585214600?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
+
+      // Tracking
+      pushToDataLayer({
+        event: 'form_submit',
+        form_name: 'Business Analysis Report',
+        page_path: pathname,
+      });
+      trackConversion();
 
       setSubmitted(true);
       setTimeout(() => {

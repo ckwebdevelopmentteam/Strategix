@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import Analytics from '@/components/Analytics/Analytics';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -34,17 +35,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gtmId = "GTM-KBPXN4T6";
+
   return (
     <html lang="en" className={poppins.variable}>
       <head>
-        {/* Google Tag Manager */}
-        {/* <script>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-XXXX');</script> */}
-        {/* Meta Pixel Code */}
-        {/* Google Analytics */}
       </head>
       <body className="font-sans bg-dark text-[#B5B5B5] overflow-x-hidden">
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            ></iframe>
+          </noscript>
+        )}
+        <Analytics />
         {children}
       </body>
+
     </html>
   );
 }
