@@ -74,24 +74,20 @@ export default function LeadModal() {
 *Emirate:* ${data.emirate}
 *Budget:* ${data.budget || 'N/A'}`;
 
-      // Send to Google Sheet
-      const sheetData = {
-        "Full Name *": data.name,
-        "Phone Number *": data.phone,
-        "Email Address *": data.email,
-        "Type of Facility *": data.facilityType,
-        "Preferred Emirate *": data.emirate,
-        "Approximate Investment Budget (Optional)": data.budget || 'N/A'
-      };
+      // Send to Google Sheet (Using URLSearchParams for bulletproof CORS/Localhost support)
+      const formData = new URLSearchParams();
+      formData.append("Full Name *", data.name);
+      formData.append("Phone Number *", data.phone);
+      formData.append("Email Address *", data.email);
+      formData.append("Type of Facility *", data.facilityType);
+      formData.append("Preferred Emirate *", data.emirate);
+      formData.append("Approximate Investment Budget (Optional)", data.budget || 'N/A');
 
       try {
-        await fetch('https://script.google.com/macros/s/AKfycbynwwwddPxAHP8EKy8X1Um3jguPY0JKpjZ8Ao6FewAfbZPYCJFM2av-R_k7nIXBHUeKKg/exec', {
+        await fetch('https://script.google.com/macros/s/AKfycby9e2CalD9kzcg-qJagUQeFOGRVUSqPr_Y91TZdn76zOUWz_gKz-t836tLPJ3BARKNvNQ/exec', {
           method: 'POST',
           mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain',
-          },
-          body: JSON.stringify(sheetData)
+          body: formData
         });
       } catch (err) {
         console.error('Failed to send to Google Sheet:', err);
