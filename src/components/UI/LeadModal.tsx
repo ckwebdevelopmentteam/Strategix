@@ -74,20 +74,14 @@ export default function LeadModal() {
 *Emirate:* ${data.emirate}
 *Budget:* ${data.budget || 'N/A'}`;
 
-      // Send to Google Sheet (Using URLSearchParams for bulletproof CORS/Localhost support)
-      const formData = new URLSearchParams();
-      formData.append("Full Name *", data.name);
-      formData.append("Phone Number *", data.phone);
-      formData.append("Email Address *", data.email);
-      formData.append("Type of Facility *", data.facilityType);
-      formData.append("Preferred Emirate *", data.emirate);
-      formData.append("Approximate Investment Budget (Optional)", data.budget || 'N/A');
-
+      // Send to internal API route to bypass any browser/Vercel CORS or adblocker issues
       try {
-        await fetch('https://script.google.com/macros/s/AKfycby9e2CalD9kzcg-qJagUQeFOGRVUSqPr_Y91TZdn76zOUWz_gKz-t836tLPJ3BARKNvNQ/exec', {
+        await fetch('/api/sheet', {
           method: 'POST',
-          mode: 'no-cors',
-          body: formData
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
         });
       } catch (err) {
         console.error('Failed to send to Google Sheet:', err);
