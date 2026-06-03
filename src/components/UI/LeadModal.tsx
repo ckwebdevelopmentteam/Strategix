@@ -76,16 +76,16 @@ export default function LeadModal() {
 
       // Send to Google Sheet
       const sheetData = {
-        Name: data.name,
-        Email: data.email,
-        Phone: data.phone,
-        Position: data.facilityType, // Using Position for Facility Type to match sheet columns
-        Resume: '',
-        Remarks: `Emirate: ${data.emirate} | Budget: ${data.budget || 'N/A'}`
+        "Full Name *": data.name,
+        "Phone Number *": data.phone,
+        "Email Address *": data.email,
+        "Type of Facility *": data.facilityType,
+        "Preferred Emirate *": data.emirate,
+        "Approximate Investment Budget (Optional)": data.budget || 'N/A'
       };
 
       try {
-        await fetch('https://script.google.com/macros/s/AKfycbxFR5Tr_Ai9s-7Nr5eHDsrhviOyxqZrqPV5JSg-MYEMCaivbHUL2wJaeH3ZVELCWWrJ/exec', {
+        await fetch('https://script.google.com/macros/s/AKfycbynwwwddPxAHP8EKy8X1Um3jguPY0JKpjZ8Ao6FewAfbZPYCJFM2av-R_k7nIXBHUeKKg/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: {
