@@ -74,6 +74,29 @@ export default function LeadModal() {
 *Emirate:* ${data.emirate}
 *Budget:* ${data.budget || 'N/A'}`;
 
+      // Send to Google Sheet
+      const sheetData = {
+        Name: data.name,
+        Email: data.email,
+        Phone: data.phone,
+        Position: data.facilityType, // Using Position for Facility Type to match sheet columns
+        Resume: '',
+        Remarks: `Emirate: ${data.emirate} | Budget: ${data.budget || 'N/A'}`
+      };
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbxFR5Tr_Ai9s-7Nr5eHDsrhviOyxqZrqPV5JSg-MYEMCaivbHUL2wJaeH3ZVELCWWrJ/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: JSON.stringify(sheetData)
+        });
+      } catch (err) {
+        console.error('Failed to send to Google Sheet:', err);
+      }
+
       // Live number from website: 971585214600
       const whatsappUrl = `https://wa.me/971585214600?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
