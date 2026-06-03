@@ -60,6 +60,26 @@ export default function Hero() {
       budget: formData.get('budget') || 'N/A',
     };
 
+    // Send to Google Sheet via our internal API route
+    try {
+      await fetch('/api/sheet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.fullName,
+          phone: data.phone,
+          email: data.email,
+          facilityType: data.facility,
+          emirate: data.emirate,
+          budget: data.budget
+        })
+      });
+    } catch (err) {
+      console.error('Failed to send to Google Sheet:', err);
+    }
+
     const message = `*New Lead Submission*
 *Name:* ${data.fullName}
 *Phone:* ${data.phone}
