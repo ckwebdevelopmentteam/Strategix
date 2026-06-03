@@ -74,18 +74,14 @@ export default function LeadModal() {
 *Emirate:* ${data.emirate}
 *Budget:* ${data.budget || 'N/A'}`;
 
-      // Send to internal API route to bypass any browser/Vercel CORS or adblocker issues
-      try {
-        await fetch('/api/sheet', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      } catch (err) {
-        console.error('Failed to send to Google Sheet:', err);
-      }
+      // Send to internal API route in the background (DO NOT await, otherwise mobile browsers block WhatsApp popup)
+      fetch('/api/sheet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      }).catch(err => console.error('Failed to send to Google Sheet:', err));
 
       // Live number from website: 971585214600
       const whatsappUrl = `https://wa.me/971585214600?text=${encodeURIComponent(message)}`;
