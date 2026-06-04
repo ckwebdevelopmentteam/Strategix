@@ -283,8 +283,6 @@ export default function Hero() {
                       </option>
                       <option className="text-black">Dubai</option>
                       <option className="text-black">Abu Dhabi</option>
-                      <option className="text-black">Sharjah</option>
-                      <option className="text-black">Ajman</option>
                       <option className="text-black">Others</option>
                     </select>
                   </div>

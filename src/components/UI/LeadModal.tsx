@@ -30,8 +30,6 @@ const facilityTypes = [
 const emirates = [
   'Dubai',
   'Abu Dhabi',
-  'Sharjah',
-  'Ajman',
   'Others',
 ];
 
