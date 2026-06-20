@@ -106,16 +106,28 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen xl:h-screen overflow-hidden flex items-center pt-36 sm:pt-24 pb-16"
     >
-      {/* VIDEO BACKGROUND */}
+      {/* DESKTOP VIDEO BACKGROUND */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover hidden sm:block"
         aria-hidden="true"
       >
         <source src="/Strategix%20hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* MOBILE VIDEO BACKGROUND */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover block sm:hidden"
+        aria-hidden="true"
+      >
+        <source src="/hero%20bg%20mobile.mp4" type="video/mp4" />
       </video>
 
       {/* OVERLAYS */}
