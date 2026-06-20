@@ -104,7 +104,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen xl:h-screen overflow-hidden flex items-center pt-36 sm:pt-24 pb-16"
+      className="relative flex flex-col sm:flex-row sm:items-center sm:min-h-screen sm:xl:h-screen sm:overflow-hidden bg-white sm:bg-transparent"
     >
       {/* DESKTOP VIDEO BACKGROUND */}
       <video
@@ -118,31 +118,33 @@ export default function Hero() {
         <source src="/Strategix%20hero.mp4" type="video/mp4" />
       </video>
 
-      {/* MOBILE VIDEO BACKGROUND */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover block sm:hidden"
-        aria-hidden="true"
-      >
-        <source src="/hero%20bg%20mobile.mp4" type="video/mp4" />
-      </video>
-
       {/* OVERLAYS */}
-      <div className="absolute inset-0" />
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
-
-      <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#191919] to-transparent" />
+      <div className="absolute inset-0 hidden sm:block" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 hidden sm:block" />
+      <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#191919] to-transparent hidden sm:block" />
 
       {/* CONTENT */}
       <div className="relative z-30 w-full">
-        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-10 lg:px-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <div className="flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-12 sm:gap-10 lg:gap-12 xl:gap-16 sm:items-center sm:px-6 md:px-10 lg:px-14">
             {/* LEFT CONTENT */}
-            <div className="lg:col-span-7 text-left lg:pr-4 xl:pr-6">
+            <div className="relative w-full lg:col-span-7 text-left pt-32 pb-16 px-6 sm:pt-0 sm:pb-0 sm:px-0 lg:pr-4 xl:pr-6">
+              {/* MOBILE VIDEO BACKGROUND */}
+              <div className="absolute inset-0 sm:hidden z-0 overflow-hidden rounded-b-[2.5rem]">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  aria-hidden="true"
+                >
+                  <source src="/hero%20bg%20mobile.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
+              </div>
+              
+              <div className="relative z-10">
               {/* SUBTITLE */}
               <div
                 className={`hidden sm:flex items-center gap-3 mb-5 transition-all duration-300 ${fading
@@ -210,21 +212,22 @@ export default function Hero() {
                   <span><strong className="text-white font-extrabold">On-Time</strong> Delivery</span>
                 </div>
               </div>
+              </div>
             </div>
 
             {/* RIGHT FORM */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-in">
-              <div className="relative w-full max-w-[480px] rounded-[32px] overflow-hidden border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] p-5 md:p-6 transition-all duration-300">
+            <div className="w-full lg:col-span-5 flex justify-center lg:justify-end animate-fade-in bg-white sm:bg-transparent py-12 px-6 sm:py-0 sm:px-0">
+              <div className="relative w-full max-w-[480px] sm:rounded-[32px] overflow-hidden sm:border sm:border-white/10 sm:bg-white/10 bg-transparent sm:backdrop-blur-2xl sm:shadow-[0_20px_60px_rgba(0,0,0,0.45)] p-0 sm:p-5 md:p-6 transition-all duration-300">
                 {/* GLOW */}
                 <div className="absolute -top-16 -right-16 w-40 h-40 bg-gold/10 blur-3xl rounded-full pointer-events-none" />
 
                 {/* HEADING */}
                 <div className="relative z-10 mb-5">
-                  <h3 className="text-white text-xl md:text-2xl font-semibold leading-tight mb-2">
+                  <h3 className="text-black sm:text-white text-xl md:text-2xl font-semibold leading-tight mb-2">
                     Get Your Business Analysis Report
                   </h3>
 
-                  <p className="text-white/65 text-xs md:text-sm leading-relaxed">
+                  <p className="text-black/65 sm:text-white/65 text-xs md:text-sm leading-relaxed">
                     Planning to invest in healthcare in the UAE? Receive a
                     professional customized Business Analysis Report with clear
                     investment estimates, revenue projections, ROI analysis,
@@ -244,14 +247,14 @@ export default function Hero() {
                       name="fullName"
                       placeholder="Full Name"
                       required
-                      className="w-full h-12 rounded-xl bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
                     />
                     <input
                       type="tel"
                       name="phone"
                       placeholder="Phone Number"
                       required
-                      className="w-full h-12 rounded-xl bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
                     />
                   </div>
 
@@ -261,7 +264,7 @@ export default function Hero() {
                     name="email"
                     placeholder="Email Address"
                     required
-                    className="w-full h-12 rounded-xl bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                    className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
                   />
 
                   {/* FACILITY & EMIRATE */}
@@ -269,7 +272,7 @@ export default function Hero() {
                     <select
                       name="facility"
                       required
-                      className="w-full h-12 rounded-xl bg-white/10 border border-white/10 px-4 text-sm text-white outline-none focus:border-gold transition-all"
+                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white outline-none focus:border-gold transition-all"
                     >
                       <option value="" className="text-black">
                         Type of Facility
@@ -288,7 +291,7 @@ export default function Hero() {
                     <select
                       name="emirate"
                       required
-                      className="w-full h-12 rounded-xl bg-white/10 border border-white/10 px-4 text-sm text-white outline-none focus:border-gold transition-all"
+                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white outline-none focus:border-gold transition-all"
                     >
                       <option value="" className="text-black">
                         Preferred Emirate
@@ -304,7 +307,7 @@ export default function Hero() {
                     type="text"
                     name="budget"
                     placeholder="Approximate Investment Budget (Optional)"
-                    className="w-full h-12 rounded-xl bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                    className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
                   />
 
                   {/* BUTTON */}
@@ -340,7 +343,7 @@ export default function Hero() {
             aria-label={`Go to slide ${index + 1}`}
             className={`transition-all duration-300 rounded-full ${current === index
               ? 'w-10 h-2 bg-gold'
-              : 'w-2 h-2 bg-white/40'
+              : 'w-2 h-2 bg-black/20 sm:bg-white/40'
               }`}
           />
         ))}
