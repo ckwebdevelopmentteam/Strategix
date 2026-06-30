@@ -7,7 +7,8 @@ export async function POST(req: Request) {
     // Map data to Google Sheet column names
     const sheetData = {
       "Full Name *": data.name || '',
-      "Phone Number *": data.phone || '',
+      "Phone Number *": data.phone ? `'${data.phone}` : '',
+      "WhatsApp Confirmed *": data.isWhatsapp ? 'Yes' : 'No',
       "Email Address *": data.email || '',
       "Type of Facility *": data.facilityType || '',
       "Preferred Emirate *": data.emirate || '',
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
     });
 
     // Send to Google Apps Script Webhook
-    await fetch('https://script.google.com/macros/s/AKfycby9e2CalD9kzcg-qJagUQeFOGRVUSqPr_Y91TZdn76zOUWz_gKz-t836tLPJ3BARKNvNQ/exec', {
+    await fetch('https://script.google.com/macros/s/AKfycbzcFgb_PwBl7VRWrCVyLdU2gpiJVOdjN4bQX-uIRBo6NrkR43sdew_PIYIYNERIm7Bn/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

@@ -4,6 +4,46 @@ import { useEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import { pushToDataLayer, trackConversion } from '@/lib/analytics';
+import { defaultCountries } from 'react-international-phone';
+
+const getFlagEmoji = (iso2: string) => {
+  try {
+    const codePoints = iso2
+      .toUpperCase()
+      .split('')
+      .map((char) => 127397 + char.charCodeAt(0));
+    return String.fromPointCode ? String.fromPointCode(...codePoints) : String.fromCodePoint(...codePoints);
+  } catch (e) {
+    return '🏳️';
+  }
+};
+
+const countries = defaultCountries
+  .map((c: any) => {
+    let countryData;
+    if (Array.isArray(c)) {
+      countryData = {
+        name: c[0],
+        iso2: c[1],
+        dialCode: `+${c[2]}`,
+      };
+    } else {
+      countryData = {
+        name: c.name,
+        iso2: c.iso2,
+        dialCode: c.dialCode.startsWith('+') ? c.dialCode : `+${c.dialCode}`,
+      };
+    }
+    return {
+      ...countryData,
+      flag: getFlagEmoji(countryData.iso2),
+    };
+  })
+  .sort((a, b) => {
+    if (a.iso2 === 'ae') return -1;
+    if (b.iso2 === 'ae') return 1;
+    return a.name.localeCompare(b.name);
+  });
 
 const slides = [
   {
@@ -25,6 +65,9 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [fading, setFading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [isWhatsapp, setIsWhatsapp] = useState(false);
+  const [whatsappError, setWhatsappError] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -49,11 +92,19 @@ export default function Hero() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    if (!isWhatsapp) {
+      setWhatsappError(true);
+      return;
+    }
+    setWhatsappError(false);
+
     const formData = new FormData(e.target);
+    const phoneInputVal = formData.get('phone') as string;
+    const fullPhone = `${selectedCountry.dialCode} ${phoneInputVal.replace(/^\+/, '')}`;
 
     const data = {
       fullName: formData.get('fullName'),
-      phone: formData.get('phone'),
+      phone: fullPhone,
       email: formData.get('email'),
       facility: formData.get('facility'),
       emirate: formData.get('emirate'),
@@ -68,17 +119,19 @@ export default function Hero() {
       },
       body: JSON.stringify({
         name: data.fullName,
-        phone: data.phone,
+        phone: fullPhone,
         email: data.email,
         facilityType: data.facility,
         emirate: data.emirate,
-        budget: data.budget
+        budget: data.budget,
+        isWhatsapp: true,
       })
     }).catch(err => console.error('Failed to send to Google Sheet:', err));
 
     const message = `*New Lead Submission*
 *Name:* ${data.fullName}
-*Phone:* ${data.phone}
+*Phone:* ${fullPhone}
+*WhatsApp Confirmed:* Yes
 *Email:* ${data.email}
 *Facility Type:* ${data.facility}
 *Emirate:* ${data.emirate}
@@ -240,66 +293,150 @@ export default function Hero() {
                   onSubmit={handleSubmit}
                   className="relative z-10 space-y-3"
                 >
-                  {/* FULL NAME & PHONE */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* FULL NAME */}
+                  <div>
                     <input
                       type="text"
                       name="fullName"
-                      placeholder="Full Name"
+                      placeholder="Full Name *"
                       required
-                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                      className="w-full h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
                     />
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number"
-                      required
-                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
-                    />
+                  </div>
+
+                  {/* PHONE NUMBER & COUNTRY CODE */}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex gap-2">
+                      {/* Country Code Selector (Dropdown) */}
+                      <div className="relative flex items-center justify-center px-3 h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 text-sm text-white select-none min-w-[95px]">
+                        <select
+                          onChange={(e) => {
+                            const found = countries.find((c) => c.iso2 === e.target.value);
+                            if (found) setSelectedCountry(found);
+                          }}
+                          value={selectedCountry.iso2}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer text-black"
+                        >
+                          {countries.map((c) => (
+                            <option key={c.iso2} value={c.iso2} className="text-black bg-white">
+                              {c.flag} {c.dialCode} ({c.name})
+                            </option>
+                          ))}
+                        </select>
+                        <div className="flex items-center gap-1.5 pointer-events-none">
+                          <img
+                            src={`https://flagcdn.com/w40/${selectedCountry.iso2.toLowerCase()}.png`}
+                            alt={selectedCountry.name}
+                            className="w-5.5 h-3.5 object-cover rounded-sm flex-shrink-0"
+                          />
+                          <span className="font-medium text-white/90">{selectedCountry.dialCode}</span>
+                          <svg className="w-3 h-3 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Phone Number Input */}
+                      <div className="flex-1">
+                        <input
+                          type="tel"
+                          name="phone"
+                          placeholder="Phone Number *"
+                          required
+                          className="w-full h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* WhatsApp Checkbox */}
+                    <div>
+                      <label className="flex items-center gap-2 cursor-pointer mt-1 self-start select-none">
+                        <input
+                          type="checkbox"
+                          checked={isWhatsapp}
+                          onChange={(e) => {
+                            setIsWhatsapp(e.target.checked);
+                            if (e.target.checked) setWhatsappError(false);
+                          }}
+                          className="sr-only"
+                        />
+                        <div className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
+                          isWhatsapp
+                            ? 'bg-[#25D366]/15 border-[#25D366]'
+                            : 'bg-black/40 sm:bg-white/10 border-white/10'
+                        }`}>
+                          {isWhatsapp && (
+                            <svg className="w-2.5 h-2.5 text-[#25D366]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                        <span className="text-xs text-white/85 font-medium">Yes, this is my WhatsApp number *</span>
+                      </label>
+                      {whatsappError && (
+                        <p className="text-red-400 text-xs mt-1 ml-1">Please confirm this is your WhatsApp number</p>
+                      )}
+                    </div>
                   </div>
 
                   {/* EMAIL */}
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email Address"
+                    placeholder="Email Address *"
                     required
-                    className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                    className="w-full h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
                   />
 
                   {/* FACILITY & EMIRATE */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <select
-                      name="facility"
-                      required
-                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white outline-none focus:border-gold transition-all"
-                    >
-                      <option value="" className="text-black">
-                        Type of Facility
-                      </option>
-                      <option className="text-black">Clinic</option>
-                      <option className="text-black">Hospital</option>
-                      <option className="text-black">Medical Center</option>
-                      <option className="text-black">Diagnostic Centre</option>
-                      <option className="text-black">Pharmacy</option>
-                      <option className="text-black">Laboratory</option>
-                      <option className="text-black">Day Surgery Centre</option>
-                      <option className="text-black">Home Healthcare</option>
-                      <option className="text-black">Others</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        name="facility"
+                        required
+                        defaultValue=""
+                        className="w-full h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 px-4 pr-10 text-sm text-white outline-none focus:border-gold transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="" disabled className="text-black bg-white">
+                          Type of Facility *
+                        </option>
+                        <option className="text-black bg-white">Clinic</option>
+                        <option className="text-black bg-white">Hospital</option>
+                        <option className="text-black bg-white">Medical Center</option>
+                        <option className="text-black bg-white">Diagnostic Centre</option>
+                        <option className="text-black bg-white">Pharmacy</option>
+                        <option className="text-black bg-white">Laboratory</option>
+                        <option className="text-black bg-white">Day Surgery Centre</option>
+                        <option className="text-black bg-white">Home Healthcare</option>
+                        <option className="text-black bg-white">Others</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
 
-                    <select
-                      name="emirate"
-                      required
-                      className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white outline-none focus:border-gold transition-all"
-                    >
-                      <option value="" className="text-black">
-                        Preferred Emirate
-                      </option>
-                      <option className="text-black">Dubai</option>
-                      <option className="text-black">Abu Dhabi</option>
-                      <option className="text-black">Others</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        name="emirate"
+                        required
+                        defaultValue=""
+                        className="w-full h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 px-4 pr-10 text-sm text-white outline-none focus:border-gold transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="" disabled className="text-black bg-white">
+                          Preferred Emirate *
+                        </option>
+                        <option className="text-black bg-white">Dubai</option>
+                        <option className="text-black bg-white">Abu Dhabi</option>
+                        <option className="text-black bg-white">Others</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
 
                   {/* BUDGET */}
@@ -307,16 +444,18 @@ export default function Hero() {
                     type="text"
                     name="budget"
                     placeholder="Approximate Investment Budget (Optional)"
-                    className="w-full h-12 rounded-xl bg-black/5 sm:bg-white/10 border border-black/10 sm:border-white/10 px-4 text-sm text-black sm:text-white placeholder:text-black/40 sm:placeholder:text-white/40 outline-none focus:border-gold transition-all"
+                    className="w-full h-12 rounded-xl bg-black/40 sm:bg-white/10 border border-white/10 px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-gold transition-all"
                   />
 
                   {/* BUTTON */}
                   <button
                     type="submit"
-                    className="w-full h-12 rounded-xl bg-gold hover:bg-[#d6b45f] text-black text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full h-12 rounded-xl bg-gold hover:bg-[#d6b45f] text-black text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Get My Business Analysis Report
-                    <FaArrowRight size={12} />
+                    <svg className="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                   </button>
 
                   {/* SUCCESS */}

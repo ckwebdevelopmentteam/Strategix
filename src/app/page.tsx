@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar/Navbar';
 import Hero from '@/components/Hero/Hero';
 import LeadForm from '@/components/LeadForm/LeadForm';
 import Services from '@/components/Services/Services';
+import BusinessReport from '@/components/BusinessReport/BusinessReport';
 import WhyUs from '@/components/WhyUs/WhyUs';
 import TurnkeySolutions from '@/components/TurnkeySolutions/TurnkeySolutions';
 import Partners from '@/components/Partners/Partners';
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Hero />
         <LeadForm />
         <Services />
+        <BusinessReport />
         <WhyUs />
         <TurnkeySolutions />
 

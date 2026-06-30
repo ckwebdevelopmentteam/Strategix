@@ -23,8 +23,8 @@ export default function AboutSection() {
             </div>
 
             {/* HEADING */}
-            <h2 className="text-[#1F1F1F] text-2xl md:text-3xl lg:text-4xl xl:text-[46px] font-semibold tracking-tight leading-relaxed mb-10">
-              We deliver <span className="font-bold">innovative healthcare solutions</span> to help
+            <h2 className="text-[#0F2942] text-2xl md:text-3xl lg:text-4xl xl:text-[46px] font-semibold tracking-tight leading-normal md:leading-relaxed xl:leading-[1.4] mb-10">
+              We deliver <span className="text-[#DBCA93] font-bold">innovative healthcare solutions</span> to help
               grow your healthcare business across UAE.
             </h2>
 
