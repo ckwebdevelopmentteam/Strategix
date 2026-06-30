@@ -13,7 +13,7 @@ const getFlagEmoji = (iso2: string) => {
       .toUpperCase()
       .split('')
       .map((char) => 127397 + char.charCodeAt(0));
-    return String.fromPointCode ? String.fromPointCode(...codePoints) : String.fromCodePoint(...codePoints);
+    return String.fromCodePoint(...codePoints);
   } catch (e) {
     return '🏳️';
   }
