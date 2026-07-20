@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import Analytics from '@/components/Analytics/Analytics';
+import VisitorTrackerClient from '@/components/VisitorTracker/VisitorTrackerClient';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -53,6 +54,7 @@ export default function RootLayout({
           </noscript>
         )}
         <Analytics />
+        <VisitorTrackerClient />
         {children}
       </body>
 
